@@ -1,0 +1,190 @@
+/* ==============================
+   COLOR PALETTE (Cafe inspired)
+   ============================== */
+:root {
+    --bg-main: #f3f4f2;          /* warm off-white */
+    --sidebar-dark: #1f4f4a;    /* deep green/turquoise */
+    --sidebar-light: #2f7f76;   /* lighter turquoise */
+    --accent-gold: #c9a24d;     /* warm gold */
+    --card-bg: #ffffff;
+    --text-dark: #243333;
+    --text-muted: #6b7c78;
+    --border-soft: #d6ddd9;
+}
+
+/* ==============================
+   BASE
+   ============================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+}
+
+#root {
+    display: flex;
+    height: 100vh;
+}
+
+/* ==============================
+   SIDEBAR
+   ============================== */
+.sidebar {
+    width: 64px;
+    background: linear-gradient(
+            180deg,
+            var(--sidebar-dark),
+            var(--sidebar-light)
+    );
+    color: white;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar:hover {
+    width: 220px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+.sidebar li {
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar li:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--accent-gold);
+}
+
+.sidebar li.active {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+/* ==============================
+   MAIN CONTENT
+   ============================== */
+.main {
+    flex: 1;
+    padding: 2rem;
+    background-color: var(--bg-main);
+    overflow-y: auto;
+}
+
+/* ==============================
+   HEADINGS
+   ============================== */
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* ==============================
+   FORM
+   ============================== */
+form {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+input,
+textarea {
+    padding: 0.6rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-soft);
+    font-size: 0.95rem;
+    background-color: #fafafa;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--sidebar-light);
+    background-color: #ffffff;
+}
+
+/* ==============================
+   BUTTONS
+   ============================== */
+button {
+    align-self: flex-start;
+    background-color: var(--sidebar-dark);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--sidebar-light);
+}
+
+/* ==============================
+   ONELINER LIST
+   ============================== */
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+li {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-gold);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+li strong {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+li span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ==============================
+   SMALL SCREENS
+   ============================== */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .sidebar:hover {
+        width: 220px;
+    }
+}
