@@ -1,4 +1,4 @@
-import { OneLinerApi } from "./Api/onelinerApi.js";
+import { OneLinerApi } from "../Api/onelinerApi.js";
 
 export class OnelinerView {
 
