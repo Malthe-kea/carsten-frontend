@@ -23,9 +23,9 @@
 
 body {
     font-family: "Segoe UI", Tahoma, sans-serif;
-    background-color: var(--bg-main);
     color: var(--text-dark);
 }
+
 
 #root {
     display: flex;
@@ -81,11 +81,17 @@ body {
 .main {
     flex: 1;
     padding: 2rem;
-    background: linear-gradient(
-            180deg,
-            #eeefec 0%,
-            #e9ebe7 100%
-    );
+    background-image:
+            linear-gradient(
+                    rgba(238, 239, 236, 0.5),
+                    rgba(233, 235, 231, 0.5)
+            ),
+            url("/Pictures/Mudhoney-front.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow-y: auto;
 }
 
