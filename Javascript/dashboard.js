@@ -24,7 +24,7 @@ export class Dashboard {
 
         const tabs = [
             { name: "Oneliners", action: () => this.showOneliners() },
-            { name: "TBA 1", action: () => this.showPlaceholder("Book telefontid") },
+            { name: "Book telefontid", action: () => this.showPlaceholder("Book telefontid") },
             { name: "TBA 2", action: () => this.showPlaceholder("TBA 2") },
             { name: "TBA 3", action: () => this.showPlaceholder("TBA 3") }
         ];
