@@ -13,7 +13,7 @@ export class Dashboard {
         this.createSidebar();
         this.createMain();
 
-        this.showPlaceholder("Vælg et punkt i menuen");
+        this.showPlaceholder("Vælg et punkt i menuen.");
     }
 
     createSidebar() {
