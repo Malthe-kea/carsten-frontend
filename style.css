@@ -2,11 +2,11 @@
    COLOR PALETTE (Cafe inspired)
    ============================== */
 :root {
-    --bg-main: #f3f4f2;          /* warm off-white */
+    --bg-main: #eeefec;
+    --card-bg: #f8f9f7;
     --sidebar-dark: #1f4f4a;    /* deep green/turquoise */
     --sidebar-light: #2f7f76;   /* lighter turquoise */
     --accent-gold: #c9a24d;     /* warm gold */
-    --card-bg: #ffffff;
     --text-dark: #243333;
     --text-muted: #6b7c78;
     --border-soft: #d6ddd9;
@@ -81,7 +81,11 @@ body {
 .main {
     flex: 1;
     padding: 2rem;
-    background-color: var(--bg-main);
+    background: linear-gradient(
+            180deg,
+            #eeefec 0%,
+            #e9ebe7 100%
+    );
     overflow-y: auto;
 }
 
@@ -112,9 +116,9 @@ input,
 textarea {
     padding: 0.6rem 0.7rem;
     border-radius: 6px;
-    border: 1px solid var(--border-soft);
     font-size: 0.95rem;
-    background-color: #fafafa;
+    background-color: #f3f5f2;
+    border: 1px solid #d2dad6;
 }
 
 textarea {
@@ -126,7 +130,7 @@ input:focus,
 textarea:focus {
     outline: none;
     border-color: var(--sidebar-light);
-    background-color: #ffffff;
+    background-color: #fdfefe;
 }
 
 /* ==============================
@@ -159,11 +163,11 @@ ul {
 }
 
 li {
-    background-color: var(--card-bg);
+    background-color: #f7f8f6;
     padding: 1rem;
     border-radius: 8px;
     border-left: 4px solid var(--accent-gold);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
 }
 
 li strong {
