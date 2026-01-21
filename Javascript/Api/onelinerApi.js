@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080/api/oneliners";
+const BASE_URL = "/api/oneliners";
 
 export class OneLinerApi {
 
