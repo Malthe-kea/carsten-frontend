@@ -217,6 +217,52 @@ li span {
     font-size: 0.95rem;
 }
 
+.postit-large {
+    width: 100%;
+    max-width: 500px;
+    min-height: 250px;
+    margin-bottom: 30px;
+    transform: rotate(-1deg);
+}
+
+.postit-large form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.postit-large input,
+.postit-large textarea {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+}
+
+.postit-large textarea {
+    flex-grow: 1;
+}
+
+.postit-large button {
+    align-self: flex-end;
+    padding: 8px 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.postit {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.postit:hover {
+    transform: scale(1.05) rotate(0deg);
+    box-shadow: 6px 10px 20px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+
+
 
 /* ==============================
    SMALL SCREENS

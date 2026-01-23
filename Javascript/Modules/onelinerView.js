@@ -20,6 +20,9 @@ export class OnelinerView {
     }
 
     createForm() {
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("postit", "postit-large");
+
         this.form = document.createElement("form");
 
         this.nameInput = document.createElement("input");
@@ -27,7 +30,7 @@ export class OnelinerView {
         this.nameInput.required = true;
 
         this.descInput = document.createElement("textarea");
-        this.descInput.placeholder = "Joke";
+        this.descInput.placeholder = "Skriv din joke her…";
         this.descInput.required = true;
 
         const button = document.createElement("button");
@@ -36,8 +39,10 @@ export class OnelinerView {
         this.form.append(this.nameInput, this.descInput, button);
         this.form.addEventListener("submit", (e) => this.createOneLiner(e));
 
-        this.container.appendChild(this.form);
+        wrapper.appendChild(this.form);
+        this.container.appendChild(wrapper);
     }
+
 
     createList() {
         this.board = document.createElement("div");
