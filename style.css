@@ -2,15 +2,21 @@
    COLOR PALETTE (Cafe inspired)
    ============================== */
 :root {
-    --bg-main: #eeefec;
-    --card-bg: #f8f9f7;
-    --sidebar-dark: #1f4f4a;    /* deep green/turquoise */
-    --sidebar-light: #2f7f76;   /* lighter turquoise */
-    --accent-gold: #c9a24d;     /* warm gold */
-    --text-dark: #243333;
-    --text-muted: #6b7c78;
-    --border-soft: #d6ddd9;
+    /* Kork & træ-inspireret palette */
+    --bg-main: #f1efe9;        /* varm off-white */
+    --card-bg: #f7f4ee;       /* papir / kort */
+
+    --sidebar-dark: #5a4632;  /* mørk egetræ */
+    --sidebar-light: #8b6a4a; /* lysere træ / kork */
+
+    --accent-gold: #c2a15f;   /* messing / nåle-guld */
+
+    --text-dark: #3b2f24;     /* mørk brun tekst */
+    --text-muted: #7a6a5a;   /* dæmpet brun/grå */
+
+    --border-soft: #ddd2c3;  /* blød korkkant */
 }
+
 
 /* ==============================
    BASE
@@ -86,7 +92,7 @@ body {
                     rgba(238, 239, 236, 0.5),
                     rgba(233, 235, 231, 0.5)
             ),
-            url("/Pictures/Mudhoney-front.webp");
+            url("/Pictures/dp-kork-opslagstavle-med-ramme-egetrae.jpg");
 
     background-size: cover;
     background-position: center;
