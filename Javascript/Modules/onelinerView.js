@@ -40,18 +40,41 @@ export class OnelinerView {
     }
 
     createList() {
-        this.list = document.createElement("ul");
-        this.container.appendChild(this.list);
+        this.board = document.createElement("div");
+        this.board.classList.add("postit-board");
+        this.container.appendChild(this.board);
     }
+
+    getRandomColor() {
+        const colors = [
+            "#fff9a6", // gul
+            "#ffd6e0", // pink
+            "#d6f5d6", // grøn
+            "#d6e4ff", // blå
+            "#fce1c9"  // orange
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+
 
     async loadOneLiners() {
         const oneliners = await OneLinerApi.getAll();
-        this.list.innerHTML = "";
+        this.board.innerHTML = "";
 
         oneliners.forEach(o => {
-            const li = document.createElement("li");
-            li.textContent = `${o.name}: ${o.description}`;
-            this.list.appendChild(li);
+            const note = document.createElement("div");
+            note.classList.add("postit");
+            note.style.backgroundColor = this.getRandomColor();
+
+            const title = document.createElement("h3");
+            title.textContent = o.name;
+
+            const text = document.createElement("p");
+            text.textContent = o.description;
+
+            note.append(title, text);
+            this.board.appendChild(note);
         });
     }
 
