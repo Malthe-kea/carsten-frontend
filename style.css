@@ -186,6 +186,38 @@ li span {
     color: var(--text-muted);
 }
 
+.postit-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.postit {
+    width: 200px;
+    min-height: 150px;
+    padding: 15px;
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.2);
+    transform: rotate(-1deg);
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+    border-radius: 4px;
+}
+
+.postit:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.postit h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+}
+
+.postit p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+
 /* ==============================
    SMALL SCREENS
    ============================== */
