@@ -20,6 +20,23 @@ export class OnelinerView {
         this.container.appendChild(h1);
     }
 
+    createSearch() {
+        this.searchInput = document.createElement("input");
+        this.searchInput.placeholder = "Søg efter navn";
+
+        this.searchInput.addEventListener("input", () => {
+            const search = this.searchInput.value.toLowerCase();
+
+            const filtered = this.oneliners.filter(o =>
+                o.name.toLowerCase().includes(search)
+            );
+
+            this.renderList(filtered);
+        });
+
+        this.container.appendChild(this.searchInput);
+    }
+
     createForm() {
         const wrapper = document.createElement("div");
         wrapper.classList.add("postit", "postit-large");
@@ -44,7 +61,6 @@ export class OnelinerView {
         this.container.appendChild(wrapper);
     }
 
-
     createList() {
         this.board = document.createElement("div");
         this.board.classList.add("postit-board");
@@ -62,17 +78,7 @@ export class OnelinerView {
         return colors[Math.floor(Math.random() * colors.length)];
     }
 
-
-
     async loadOneLiners() {
-        const oneliners = await OneLinerApi.getAll();
-        this.list.innerHTML = "";
-
-        oneliners.forEach(o => {
-            const li = document.createElement("li");
-            li.textContent = `${o.name}: ${o.description}`;
-            this.list.appendChild(li);
-        });
         this.oneliners = await OneLinerApi.getAll();
         this.renderList(this.oneliners);
     }
@@ -90,31 +96,21 @@ export class OnelinerView {
     }
 
     renderList(oneliners) {
-        this.list.innerHTML = "";
+        this.board.innerHTML = "";
 
         oneliners.forEach(o => {
-            const li = document.createElement("li");
-            li.textContent = `${o.name}: ${o.description}`;
-            this.list.appendChild(li);
+            const note = document.createElement("div");
+            note.classList.add("postit");
+            note.style.backgroundColor = this.getRandomColor();
+
+            const name = document.createElement("strong");
+            name.textContent = o.name;
+
+            const text = document.createElement("p");
+            text.textContent = o.description;
+
+            note.append(name, text);
+            this.board.appendChild(note);
         });
     }
-
-    createSearch() {
-        this.searchInput = document.createElement("input");
-        this.searchInput.placeholder = "Søg efter navn";
-
-        this.searchInput.addEventListener("input", () => {
-            const search = this.searchInput.value.toLowerCase();
-
-            const filtered = this.oneliners.filter(o =>
-                o.name.toLowerCase().includes(search)
-            );
-
-            this.renderList(filtered);
-        });
-
-        this.container.appendChild(this.searchInput);
-    }
-
-
 }
