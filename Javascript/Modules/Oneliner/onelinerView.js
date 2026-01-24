@@ -23,6 +23,7 @@ export class OnelinerView {
     createSearch() {
         this.searchInput = document.createElement("input");
         this.searchInput.placeholder = "Søg efter navn";
+        this.searchInput.className = "search-input";
 
         this.searchInput.addEventListener("input", () => {
             const search = this.searchInput.value.toLowerCase();

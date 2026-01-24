@@ -10,15 +10,16 @@ export class Dashboard {
     render() {
         this.root.innerHTML = "";
 
-        this.createSidebar();
+        this.createTopbar();
         this.createMain();
 
         this.showPlaceholder("Vælg et punkt i menuen.");
     }
 
-    createSidebar() {
-        const sidebar = document.createElement("nav");
-        sidebar.classList.add("sidebar");
+
+    createTopbar() {
+        const topbar = document.createElement("nav");
+        topbar.classList.add("topbar");
 
         const ul = document.createElement("ul");
 
@@ -34,7 +35,7 @@ export class Dashboard {
             li.textContent = tab.name;
 
             li.addEventListener("click", () => {
-                document.querySelectorAll(".sidebar li")
+                document.querySelectorAll(".topbar li")
                     .forEach(item => item.classList.remove("active"));
 
                 li.classList.add("active");
@@ -44,9 +45,10 @@ export class Dashboard {
             ul.appendChild(li);
         });
 
-        sidebar.appendChild(ul);
-        this.root.appendChild(sidebar);
+        topbar.appendChild(ul);
+        this.root.appendChild(topbar);
     }
+
 
     createMain() {
         this.main = document.createElement("div");
