@@ -1,4 +1,4 @@
-import { OnelinerView } from "./Modules/onelinerView.js";
+import { OnelinerView } from "./Modules/Oneliner/onelinerView.js";
 
 export class Dashboard {
 

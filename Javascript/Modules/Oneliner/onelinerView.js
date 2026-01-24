@@ -1,12 +1,13 @@
-import { OneLinerApi } from "../Api/onelinerApi.js";
+import { OneLinerApi } from "../../Api/onelinerApi.js";
 
 export class OnelinerView {
-
     constructor(container) {
         this.container = container;
+        this.oneliners = [];
     }
 
     async render() {
+        this.createSearch();
         this.createTitle();
         this.createForm();
         this.createList();
@@ -65,22 +66,15 @@ export class OnelinerView {
 
     async loadOneLiners() {
         const oneliners = await OneLinerApi.getAll();
-        this.board.innerHTML = "";
+        this.list.innerHTML = "";
 
         oneliners.forEach(o => {
-            const note = document.createElement("div");
-            note.classList.add("postit");
-            note.style.backgroundColor = this.getRandomColor();
-
-            const title = document.createElement("h3");
-            title.textContent = o.name;
-
-            const text = document.createElement("p");
-            text.textContent = o.description;
-
-            note.append(title, text);
-            this.board.appendChild(note);
+            const li = document.createElement("li");
+            li.textContent = `${o.name}: ${o.description}`;
+            this.list.appendChild(li);
         });
+        this.oneliners = await OneLinerApi.getAll();
+        this.renderList(this.oneliners);
     }
 
     async createOneLiner(e) {
@@ -94,4 +88,33 @@ export class OnelinerView {
         this.form.reset();
         await this.loadOneLiners();
     }
+
+    renderList(oneliners) {
+        this.list.innerHTML = "";
+
+        oneliners.forEach(o => {
+            const li = document.createElement("li");
+            li.textContent = `${o.name}: ${o.description}`;
+            this.list.appendChild(li);
+        });
+    }
+
+    createSearch() {
+        this.searchInput = document.createElement("input");
+        this.searchInput.placeholder = "Søg efter navn";
+
+        this.searchInput.addEventListener("input", () => {
+            const search = this.searchInput.value.toLowerCase();
+
+            const filtered = this.oneliners.filter(o =>
+                o.name.toLowerCase().includes(search)
+            );
+
+            this.renderList(filtered);
+        });
+
+        this.container.appendChild(this.searchInput);
+    }
+
+
 }
